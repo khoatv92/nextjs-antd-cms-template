@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ant-design/pro-components": "^2.3.46",
     "@tanstack/react-query": "^4.19.1",
     "antd": "^5.0.4",
     "axios": "^1.2.1",

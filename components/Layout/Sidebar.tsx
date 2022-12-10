@@ -28,6 +28,7 @@ const items: MenuItem[] = [
     <UserOutlined />
   ),
   getItem(<Link href="/app/table">Table</Link>, 'table', <DesktopOutlined />),
+  getItem(<Link href="/app/prolist">List</Link>, 'list', <FileOutlined />),
   getItem('User', 'sub1', <UserOutlined />, [
     getItem('Tom', '3'),
     getItem('Bill', '4'),
