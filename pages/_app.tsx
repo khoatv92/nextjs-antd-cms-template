@@ -18,15 +18,9 @@ const queryClient = new QueryClient({
 });
 
 const App = ({ Component, pageProps, router }: AppProps) => {
-  if (router.pathname === '/') {
-    return <Component {...pageProps} />;
-  }
-  return (
-    <QueryClientProvider client={queryClient}>
-      <Head>
-        <title>Ant Design CMS</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
+  let renderComponent = <Component {...pageProps} />;
+  if (router.pathname !== '/') {
+    renderComponent = (
       <Layout style={{ minHeight: '100vh' }}>
         <SidebarLayout />
         <Layout className="site-layout">
@@ -37,6 +31,15 @@ const App = ({ Component, pageProps, router }: AppProps) => {
           <FooterLayout />
         </Layout>
       </Layout>
+    );
+  }
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Head>
+        <title>Ant Design CMS</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      {renderComponent}
     </QueryClientProvider>
   );
 };
